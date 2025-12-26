@@ -25,3 +25,4 @@ Thumbs.db
 
 # Large generated files (keep in .gitignore if too large)
 # schemas/github-rest-api.json
+schemas/github-rest-api.json
