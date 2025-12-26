@@ -1,0 +1,299 @@
+# GitHub Enterprise GraphQL Queries for o9 Enterprise Insights
+
+# Query: Get Enterprise Overview
+query EnterpriseOverview($slug: String!) {
+  enterprise(slug: $slug) {
+    id
+    slug
+    name
+    description
+    createdAt
+    url
+    websiteUrl
+    location
+    avatarUrl
+    billingInfo {
+      allLicensableUsersCount
+      assetPacks
+      bandwidthQuota
+      bandwidthUsage
+      bandwidthUsagePercentage
+      storageQuota
+      storageUsage
+      storageUsagePercentage
+    }
+    members(first: 100) {
+      totalCount
+      edges {
+        node {
+          ... on User {
+            login
+            name
+            email
+          }
+        }
+        role
+      }
+    }
+    organizations(first: 100) {
+      totalCount
+      edges {
+        node {
+          login
+          name
+          description
+          createdAt
+          membersWithRole {
+            totalCount
+          }
+          repositories {
+            totalCount
+          }
+          teams {
+            totalCount
+          }
+        }
+      }
+    }
+    ownerInfo {
+      admins(first: 100) {
+        totalCount
+        edges {
+          node {
+            login
+            name
+          }
+        }
+      }
+      affiliatedUsersWithTwoFactorDisabled(first: 100) {
+        totalCount
+      }
+      allowPrivateRepositoryForkingSetting
+      defaultRepositoryPermissionSetting
+      membersCanChangeRepositoryVisibilitySetting
+      membersCanCreateInternalRepositoriesSetting
+      membersCanCreatePrivateRepositoriesSetting
+      membersCanCreatePublicRepositoriesSetting
+      membersCanCreateRepositoriesSetting
+      membersCanDeleteIssuesSetting
+      membersCanDeleteRepositoriesSetting
+      membersCanInviteCollaboratorsSetting
+      notificationDeliveryRestrictionEnabledSetting
+      oidcProvider {
+        providerType
+        tenantId
+      }
+      outsideCollaborators(first: 100) {
+        totalCount
+      }
+      pendingAdminInvitations(first: 100) {
+        totalCount
+      }
+      pendingCollaboratorInvitations(first: 100) {
+        totalCount
+      }
+      pendingMemberInvitations(first: 100) {
+        totalCount
+      }
+      samlIdentityProvider {
+        ssoUrl
+        issuer
+        digestMethod
+        signatureMethod
+      }
+      supportEntitlements(first: 10) {
+        totalCount
+      }
+    }
+  }
+}
+
+# Query: Get Enterprise Organizations Details
+query EnterpriseOrganizations($slug: String!, $first: Int = 100) {
+  enterprise(slug: $slug) {
+    organizations(first: $first) {
+      totalCount
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      edges {
+        node {
+          id
+          login
+          name
+          description
+          email
+          websiteUrl
+          location
+          createdAt
+          updatedAt
+          isVerified
+          membersWithRole(first: 10) {
+            totalCount
+          }
+          repositories(first: 10) {
+            totalCount
+          }
+          teams(first: 10) {
+            totalCount
+          }
+          projects(first: 10) {
+            totalCount
+          }
+          packages(first: 10) {
+            totalCount
+          }
+          pinnedItems(first: 6) {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}
+
+# Query: Get Enterprise Members
+query EnterpriseMembers($slug: String!, $first: Int = 100) {
+  enterprise(slug: $slug) {
+    members(first: $first) {
+      totalCount
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      edges {
+        node {
+          ... on User {
+            id
+            login
+            name
+            email
+            bio
+            company
+            location
+            createdAt
+            followers {
+              totalCount
+            }
+            following {
+              totalCount
+            }
+            repositories {
+              totalCount
+            }
+            organizations(first: 10) {
+              totalCount
+            }
+          }
+        }
+        role
+      }
+    }
+  }
+}
+
+# Query: Get Enterprise Audit Log
+query EnterpriseAuditLog($slug: String!, $first: Int = 50) {
+  enterprise(slug: $slug) {
+    ownerInfo {
+      actionExecutionCapabilitySettingOrganizations(first: $first) {
+        totalCount
+      }
+    }
+  }
+}
+
+# Query: Get Organization Repositories
+query OrganizationRepositories($login: String!, $first: Int = 100) {
+  organization(login: $login) {
+    repositories(first: $first, orderBy: {field: UPDATED_AT, direction: DESC}) {
+      totalCount
+      pageInfo {
+        hasNextPage
+        endCursor
+      }
+      edges {
+        node {
+          id
+          name
+          description
+          url
+          createdAt
+          updatedAt
+          pushedAt
+          isPrivate
+          isArchived
+          isFork
+          stargazerCount
+          forkCount
+          primaryLanguage {
+            name
+            color
+          }
+          languages(first: 10) {
+            totalCount
+            edges {
+              node {
+                name
+              }
+              size
+            }
+          }
+          defaultBranchRef {
+            name
+            target {
+              ... on Commit {
+                history {
+                  totalCount
+                }
+              }
+            }
+          }
+          issues {
+            totalCount
+          }
+          pullRequests {
+            totalCount
+          }
+          collaborators {
+            totalCount
+          }
+        }
+      }
+    }
+  }
+}
+
+# Query: Get Organization Teams
+query OrganizationTeams($login: String!, $first: Int = 100) {
+  organization(login: $login) {
+    teams(first: $first) {
+      totalCount
+      edges {
+        node {
+          id
+          slug
+          name
+          description
+          privacy
+          createdAt
+          updatedAt
+          members {
+            totalCount
+          }
+          repositories {
+            totalCount
+          }
+          childTeams {
+            totalCount
+          }
+          parentTeam {
+            slug
+            name
+          }
+        }
+      }
+    }
+  }
+}

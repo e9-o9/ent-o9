@@ -1,0 +1,12 @@
+# Simple GraphQL Introspection Query
+query SimpleIntrospection {
+  __schema {
+    queryType { name }
+    mutationType { name }
+    types {
+      name
+      kind
+      description
+    }
+  }
+}
