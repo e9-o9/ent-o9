@@ -1,0 +1,128 @@
+{
+  "metadata": {
+    "enterprise": "o9",
+    "analysis_date": "2025-12-26T05:42:11.431734",
+    "total_organizations": 2,
+    "total_members": 3,
+    "enterprise_created": "2025-10-24T03:51:53Z"
+  },
+  "organizations": {
+    "o9nn": {
+      "total_repositories": 568,
+      "forked_repositories": 511,
+      "original_repositories": 57,
+      "private_repositories": 9,
+      "description_coverage": 81.69014084507043
+    },
+    "e9-o9": {
+      "total_repositories": 2,
+      "purpose": "Enterprise management and insights"
+    }
+  },
+  "admins": [
+    "danregima",
+    "drzo",
+    "dtecho"
+  ],
+  "languages": {
+    "Python": 105,
+    "C++": 84,
+    "TypeScript": 63,
+    "C": 51,
+    "Go": 37,
+    "Lua": 37,
+    "JavaScript": 27,
+    "None": 21,
+    "Shell": 11,
+    "C#": 11,
+    "Swift": 9,
+    "HTML": 8,
+    "Scheme": 7,
+    "Cuda": 7,
+    "PowerShell": 5,
+    "Julia": 5,
+    "Scala": 4,
+    "CMake": 4,
+    "Rust": 4,
+    "OCaml": 4,
+    "Common Lisp": 4,
+    "Smali": 3,
+    "Mathematica": 3,
+    "Jupyter Notebook": 3,
+    "Java": 3,
+    "Assembly": 3,
+    "q": 3,
+    "Arc": 3,
+    "Makefile": 2,
+    "TeX": 2,
+    "Crystal": 2,
+    "Rocq Prover": 2,
+    "Solidity": 2,
+    "ShaderLab": 2,
+    "Vue": 2,
+    "Jinja": 1,
+    "Dart": 1,
+    "Xmake": 1,
+    "AutoHotkey": 1,
+    "Dockerfile": 1,
+    "MATLAB": 1,
+    "R": 1,
+    "PHP": 1,
+    "KiCad Layout": 1,
+    "Fortran": 1,
+    "HCL": 1,
+    "Haskell": 1,
+    "Typst": 1,
+    "Markdown": 1,
+    "LLVM": 1,
+    "REXX": 1,
+    "Rich Text Format": 1,
+    "Coq": 1,
+    "PureBasic": 1,
+    "Svelte": 1,
+    "Odin": 1,
+    "Racket": 1,
+    "MDX": 1,
+    "Clojure": 1,
+    "Starlark": 1
+  },
+  "repository_categories": {
+    "other": 532,
+    "secrets_management": 2,
+    "llama_ecosystem": 6,
+    "cognitive_core": 16,
+    "infrastructure": 2,
+    "pygmalion_forks": 10
+  },
+  "health_metrics": {
+    "fork_ratio": 89.96478873239437,
+    "description_coverage": 81.69014084507043,
+    "original_ratio": 10.035211267605634
+  },
+  "recommendations": {
+    "immediate": [
+      "Add descriptions to 104 repositories",
+      "Establish repository categorization and tagging strategy",
+      "Create organization README profiles for both orgs",
+      "Define fork maintenance and upstream sync policies"
+    ],
+    "short_term": [
+      "Consolidate cognitive core repositories (cog* prefix)",
+      "Evaluate and document Pygmalion fork relationships",
+      "Implement CI/CD across active repositories",
+      "Create centralized documentation hub"
+    ],
+    "medium_term": [
+      "Develop enterprise-wide governance policies",
+      "Establish contribution guidelines",
+      "Create automated repository health monitoring",
+      "Build cross-organization collaboration workflows"
+    ],
+    "strategic": [
+      "Define clear boundaries between o9nn and e9-o9 organizations",
+      "Establish enterprise-level security policies",
+      "Create roadmap for cognitive computing ecosystem",
+      "Plan for community engagement and open-source strategy"
+    ]
+  }
+}
