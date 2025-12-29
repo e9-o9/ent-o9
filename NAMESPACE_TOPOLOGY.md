@@ -100,16 +100,59 @@ https://sub.dom.com/path/to/resource
 
 ---
 
-## 5. Implementation in the O9 Enterprise
+## 5. Inferno File Type Correspondence
+
+The triadic namespace architecture has a direct correspondence to the Inferno operating system's file type hierarchy. This mapping provides a concrete implementation model for the abstract namespace concepts.
+
+### 5.1 File Type Mapping
+
+| System | Host Binding | Inferno File Type | Description |
+| :--- | :--- | :--- | :--- |
+| **b9** | `localhost` | **b-files** | Native binary executables, direct hardware binding |
+| **p9** | `globalhost` | **m-files** | Limbo module files (.m), scope-bound compilation units |
+| **j9** | `orgalhost` | **dis-files** | Dis VM bytecode, portable execution across the mesh |
+
+### 5.2 Execution Model
+
+```
+b9 (Trees)          p9 (Containers)       j9 (Surfaces)
+────────────        ─────────────────     ──────────────
+b-files             m-files               dis-files
+│                   │                     │
+├─ Native binary    ├─ Limbo modules      ├─ Dis VM bytecode
+├─ Hardware-bound   ├─ Scope-bound        ├─ Portable/distributed
+├─ Terminal node    ├─ Membrane boundary  ├─ Gradient flow
+├─ 127.0.0.1        ├─ 0.0.0.0            ├─ Mesh topology
+│                   │                     │
+└─ "I am HERE"      └─ "Run WITHIN me"    └─ "Flow ACROSS us"
+```
+
+### 5.3 Portability Gradient
+
+| Layer | Binding | Execution Context | Portability |
+| :--- | :--- | :--- | :--- |
+| **b-files** | Physical CPU | Direct hardware | None (architecture-specific) |
+| **m-files** | Limbo runtime | Module scope | Compile-time (source portable) |
+| **dis-files** | Dis VM | Any Inferno host | Full (bytecode portable) |
+
+This hierarchy establishes a **portability gradient** from the most concrete (b-files bound to specific hardware) to the most abstract (dis-files flowing across any node in the distributed system). The gradient corresponds directly to the namespace topology:
+
+- **b9/b-files**: The terminal leaf where computation meets physical reality
+- **p9/m-files**: The membrane boundary defining execution scope and module interfaces
+- **j9/dis-files**: The surface across which portable computation flows and distributes
+
+---
+
+## 6. Implementation in the O9 Enterprise
 
 The triadic architecture is mapped onto the concrete GitHub entities of the O9 Enterprise.
 
-### 5.1 b9 Layer (Tree Paths)
+### 6.1 b9 Layer (Tree Paths)
 
 - **`e9-o9.repos.ent-o9`**: The tree path to the enterprise insights repository.
 - **`o9nn.repos.cogpy`**: The tree path to the core Python cognitive library.
 
-### 5.2 p9 Layer (Container Scopes)
+### 6.2 p9 Layer (Container Scopes)
 
 - **`/e9/`**: The root enterprise namespace.
 - **`/e9/o9/`**: The O9 Enterprise membrane.
@@ -117,7 +160,7 @@ The triadic architecture is mapped onto the concrete GitHub entities of the O9 E
 - **`/e9/o9/o9nn/cogpy/`**: The execution scope for the `cogpy` repository.
 - **`/e9/o9/e9-o9/`**: The scope for enterprise-level management and governance.
 
-### 5.3 j9 Layer (Surface Gradients)
+### 6.3 j9 Layer (Surface Gradients)
 
 - **`∂(o9nn ↔ e9-o9)`**: Represents the interaction, data flow, and policy gradients between the two primary organizations.
 - **`∂(fork ↔ upstream)`**: Represents the differential between a forked repository and its upstream source, measuring divergence and potential for integration.
@@ -125,6 +168,6 @@ The triadic architecture is mapped onto the concrete GitHub entities of the O9 E
 
 ---
 
-## 6. Conclusion
+## 7. Conclusion
 
 The b9/p9/j9 triadic namespace provides a robust and comprehensive model for the O9 Enterprise. It allows any asset to be simultaneously understood by its unique identity (b9), its execution context (p9), and its dynamic relationships with other assets (j9). This architecture provides a foundation for advanced discoverability, computation, and governance across the entire enterprise ecosystem.
